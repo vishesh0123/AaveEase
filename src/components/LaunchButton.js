@@ -2,6 +2,9 @@ import React from "react";
 import { Button, Typography } from "@mui/material";
 
 function LaunchButtons() {
+  const handleClick = () => {
+    window.location.href = "/transaction-builder";
+  };
   return (
     <div style={{ textAlign: "center", marginTop: "100px" }}>
       <Button
@@ -14,9 +17,15 @@ function LaunchButtons() {
           padding: "15px 50px",
           marginRight: "40px",
         }}
+        onClick={handleClick}
       >
         <Typography
-          style={{ color: "white", fontSize: "1.1rem", fontWeight: "600" }}
+          style={{
+            color: "white",
+            fontSize: "1.1rem",
+            fontWeight: "100",
+            fontFamily: "Lilita One",
+          }}
         >
           Launch Transaction Builder
         </Typography>
@@ -32,7 +41,12 @@ function LaunchButtons() {
         }}
       >
         <Typography
-          style={{ color: "white", fontSize: "1.1rem", fontWeight: "600" }}
+          style={{
+            color: "white",
+            fontSize: "1.1rem",
+            fontWeight: "100",
+            fontFamily: "Lilita One",
+          }}
         >
           Launch Address Migration Tool
         </Typography>
