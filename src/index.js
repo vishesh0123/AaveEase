@@ -11,9 +11,9 @@ import {
 } from "@web3modal/ethereum";
 import { Web3Modal } from "@web3modal/react";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
-import { arbitrum, mainnet, polygon } from "wagmi/chains";
+import { polygonMumbai } from "wagmi/chains";
 
-const chains = [arbitrum, mainnet, polygon];
+const chains = [polygonMumbai];
 // Wagmi client
 const { provider } = configureChains(chains, [
   walletConnectProvider({ projectId: "1aab1ed57576431ca9a7c2f3c99df164" }),

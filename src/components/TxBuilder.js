@@ -1,6 +1,12 @@
 import React from "react";
 import { Grid, Typography } from "@mui/material";
 import InitialSupplyCard from "./InitialSupplyCard";
+import SupplyToAaveCard from "./SupplyToAaveCard";
+import BorrowFromAaveCard from "./BorrowFromAaveCard";
+import WithdrawFromAaveCard from "./WithdrawFromAaveCard";
+import RepayAaveCard from "./RepayAaveCard";
+import FlashloanAaveCard from "./FlashloanAaveCard";
+import MigratePositionsCard from "./MigratePositionsCard";
 
 function TxBuilder() {
   return (
@@ -12,19 +18,18 @@ function TxBuilder() {
         borderRadius: "10px",
         boxSizing: "border-box",
         flexDirection: "row",
+        height: "400px",
       }}
     >
       <Typography
         style={{
           fontFamily: "Lilita One",
-          fontWeight: "30",
-          fontSize: "1.1rem",
+          fontSize: "1.01rem",
           color: "white",
-          textTransform: "none",
           transform: "rotate(270deg)",
         }}
       >
-        Create a Transaction
+        TRANSACTION FLOW
       </Typography>
       <div>
         <Grid
@@ -33,7 +38,7 @@ function TxBuilder() {
           style={{
             display: "grid",
             gridAutoFlow: "column",
-            height: "350px",
+            height: "360px",
             maxWidth: "1230px",
             overflowX: "auto",
             marginTop: "20px",
@@ -43,16 +48,22 @@ function TxBuilder() {
             <InitialSupplyCard />
           </Grid>
           <Grid item>
-            <InitialSupplyCard />
+            <SupplyToAaveCard />
           </Grid>
           <Grid item>
-            <InitialSupplyCard />
+            <BorrowFromAaveCard />
           </Grid>
           <Grid item>
-            <InitialSupplyCard />
+            <WithdrawFromAaveCard />
           </Grid>
           <Grid item>
-            <InitialSupplyCard />
+            <RepayAaveCard />
+          </Grid>
+          <Grid item>
+            <FlashloanAaveCard />
+          </Grid>
+          <Grid item>
+            <MigratePositionsCard />
           </Grid>
         </Grid>
       </div>

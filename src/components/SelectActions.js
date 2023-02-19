@@ -39,8 +39,6 @@ function SelectActions() {
             color: "white",
             fontFamily: "Lilita One",
           }}
-          disabled={!activeMenu}
-          open={activeMenu}
         >
           <MenuItem
             value={1}
@@ -71,6 +69,18 @@ function SelectActions() {
             style={{ fontFamily: "Lilita One", fontSize: "1.2rem" }}
           >
             Take a Flashloan
+          </MenuItem>
+          <MenuItem
+            value={5}
+            style={{ fontFamily: "Lilita One", fontSize: "1.2rem" }}
+          >
+            Implement a SWAP
+          </MenuItem>
+          <MenuItem
+            value={5}
+            style={{ fontFamily: "Lilita One", fontSize: "1.2rem" }}
+          >
+            Migrate All Positions
           </MenuItem>
         </Select>
       </FormControl>

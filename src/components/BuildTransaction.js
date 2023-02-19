@@ -3,7 +3,7 @@ import React from "react";
 
 function BuildTransaction() {
   return (
-    <div style={{ margin: "25px", display: "flex", justifyContent: "center" }}>
+    <div style={{ margin: "10px", display: "flex", justifyContent: "center" }}>
       <Button style={{ border: "1px solid white" }}>
         <Typography
           style={{

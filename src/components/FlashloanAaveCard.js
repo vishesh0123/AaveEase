@@ -1,24 +1,22 @@
 import {
   Card,
+  CardActionArea,
   CardContent,
   Typography,
-  CardActionArea,
   Button,
 } from "@mui/material";
-import { useState } from "react";
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
-import TokenSelectMenu from "./InitialSupplyCard/TokenSelectMenu";
-import TokenTable from "./InitialSupplyCard/TokenTable";
+import SelectActions from "./SelectActions";
 
-function InitialSupplyCard() {
+function FlashloanAaveCard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [initialSupplyState, setInitialSupplyState] = useState([]);
+  const [flashloanState, setRepayState] = useState([]);
   return (
     <>
       <Card
         sx={{
-          width: 350,
+          width: 750,
           height: 300,
           background:
             "radial-gradient(circle at center center, rgb(42, 46, 63), rgb(38, 41, 55))",
@@ -51,28 +49,37 @@ function InitialSupplyCard() {
                   textTransform: "none",
                 }}
               >
-                1. Initial Supply
+                5. Flashloan
               </Typography>
-              {initialSupplyState.length === 0 ? (
+              {flashloanState.length === 0 ? (
                 <Typography
                   style={{
                     fontFamily: "Lilita One",
-                    fontWeight: "50",
-                    fontSize: "1.05rem",
+                    fontSize: "1.1rem",
                     color: "#e5b8ff",
                     textTransform: "none",
-                    marginTop: "25px",
+                    marginTop: "15px",
                   }}
                 >
-                  While building complex transactions you might want to supply
-                  some initial tokens which can be used in later steps. <br />
+                  Parameters:
                   <br />
-                  (Note : You will need to approve the amount of tokens to
-                  contract in later steps after you done building whole
-                  transaction.)
+                  Asset: &nbsp; Token to Supply
+                  <br />
+                  Amount: &nbsp; Amount of token to supply
+                  <br />
+                  interestRateMode: &nbsp; the type of borrow debt. Stable: 1,
+                  Variable: 2
+                  <br />
+                  onBehalfOf: &nbsp; address of user who will incur the debt.
+                  <br />
+                  <br />
+                  (NOTE : You must have supplied enough collateral via supply()
+                  and have delegated credit to our contract via
+                  approveDelegation() , you will be asked to do this once you
+                  complete building whole transaction.)
                 </Typography>
               ) : (
-                <TokenTable state={initialSupplyState} />
+                <></>
               )}
             </div>
           </CardContent>
@@ -90,20 +97,16 @@ function InitialSupplyCard() {
             backgroundColor: "rgb(42, 46, 63)",
             position: "absolute",
             borderRadius: "10px",
-            top: "20px",
-            left: "450px",
-            right: "430px",
-            bottom: "20px",
+            top: "100px",
+            left: "80px",
+            right: "80px",
+            bottom: "100px",
           },
         }}
       >
-        <TokenSelectMenu
-          state={initialSupplyState}
-          changeState={setInitialSupplyState}
-        />
-        <TokenTable state={initialSupplyState} />
+        <SelectActions />
         <Button
-          style={{ marginTop: "20px", marginLeft: "180px" }}
+          style={{ marginTop: "20px", marginLeft: "400px" }}
           onClick={() => {
             setIsModalOpen(false);
           }}
@@ -125,4 +128,4 @@ function InitialSupplyCard() {
   );
 }
 
-export default InitialSupplyCard;
+export default FlashloanAaveCard;
