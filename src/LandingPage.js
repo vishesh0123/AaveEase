@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 import LaunchButtons from "./components/LaunchButton";
 import Title from "./components/Title";
+import TransactionBuilder from "./layout/TransactionBuilder";
 
-function LandingPage() {
+function LandingPage({ change }) {
+  const [state, setState] = useState(false);
   return (
     <>
-      <Title />
-      <LaunchButtons />
+      {state ? (
+        <TransactionBuilder />
+      ) : (
+        <>
+          <Title />
+          <LaunchButtons change={setState} />
+        </>
+      )}
     </>
   );
 }

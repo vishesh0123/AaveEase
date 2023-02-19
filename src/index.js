@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import LandingPage from "./LandingPage";
-import TransactionBuilder from "./layout/TransactionBuilder";
 import {
   EthereumClient,
   modalConnectors,
@@ -35,15 +33,7 @@ const ethereumClient = new EthereumClient(wagmiClient, chains);
 export default function App() {
   return (
     <WagmiConfig client={wagmiClient}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LandingPage />}></Route>
-          <Route
-            path="transaction-builder"
-            element={<TransactionBuilder />}
-          ></Route>
-        </Routes>
-      </BrowserRouter>
+      <LandingPage />
     </WagmiConfig>
   );
 }
