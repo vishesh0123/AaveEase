@@ -15,7 +15,7 @@ function BorrowMenu({ state, setState }) {
   const [token, setToken] = useState("");
   const [amount, setAmount] = useState(0);
   const [address, setAddress] = useState("");
-  const [intrest, setIntrest] = useState(false);
+  const [intrest, setIntrest] = useState(0);
 
   const handleTokenChange = (event) => {
     setToken(event.target.value);
@@ -36,7 +36,13 @@ function BorrowMenu({ state, setState }) {
   const handleClick = (event) => {
     setState([
       ...state,
-      { Token: token, Amount: amount, Address: address, Intrest: intrest },
+      {
+        Id: state.length + 1,
+        Token: token,
+        Amount: amount,
+        Intrest: intrest,
+        Address: address,
+      },
     ]);
   };
   return (
@@ -71,7 +77,6 @@ function BorrowMenu({ state, setState }) {
                   <Typography
                     style={{
                       fontFamily: "Lilita One",
-                      fontWeight: "30",
                       fontSize: "1rem",
                       marginLeft: "10px",
                       color: "white",
@@ -133,27 +138,25 @@ function BorrowMenu({ state, setState }) {
       />
       <FormControl
         sx={{
-          minWidth: 200,
+          minWidth: 150,
           height: 100,
           borderColor: "white",
           marginLeft: "10px",
         }}
       >
         <InputLabel
-          id="demo-simple-select-label"
+          id="intrest-simple-select-label"
           sx={{ fontFamily: "Lilita One", color: "white" }}
         >
           SELECT INTREST RATE
         </InputLabel>
         <Select
-          labelId="demo-simple-select-label"
+          labelId="intrest-simple-select-label"
           label="Select Aave V3 Action"
-          id="demo-simple-select"
+          id="intrest-simple-select"
           value={intrest}
-          defaultValue={0}
           onChange={handleIntrestChange}
           sx={{
-            color: "white",
             fontFamily: "Lilita One",
             height: 56,
           }}
@@ -162,9 +165,8 @@ function BorrowMenu({ state, setState }) {
             <Typography
               style={{
                 fontFamily: "Lilita One",
-                fontWeight: "30",
                 fontSize: "1rem",
-                marginLeft: "10px",
+
                 color: "white",
               }}
             >
@@ -175,9 +177,8 @@ function BorrowMenu({ state, setState }) {
             <Typography
               style={{
                 fontFamily: "Lilita One",
-                fontWeight: "30",
                 fontSize: "1rem",
-                marginLeft: "10px",
+
                 color: "white",
               }}
             >

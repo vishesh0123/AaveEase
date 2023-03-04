@@ -33,6 +33,19 @@ function BorrowTable({ state }) {
                     color: "#e5b8ff",
                   }}
                 >
+                  ID
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography
+                  style={{
+                    fontFamily: "Lilita One",
+                    fontWeight: "30",
+                    fontSize: "1rem",
+                    marginLeft: "10px",
+                    color: "#e5b8ff",
+                  }}
+                >
                   TOKEN
                 </Typography>
               </TableCell>
@@ -80,7 +93,20 @@ function BorrowTable({ state }) {
           <TableBody>
             {state.map((row) => {
               return (
-                <TableRow key={row.Token}>
+                <TableRow key={row.Id}>
+                  <TableCell>
+                    <Typography
+                      style={{
+                        fontFamily: "Lilita One",
+                        fontWeight: "30",
+                        fontSize: "1rem",
+                        marginLeft: "10px",
+                        color: "white",
+                      }}
+                    >
+                      {row.Id}
+                    </Typography>
+                  </TableCell>
                   <TableCell>
                     <Typography
                       style={{

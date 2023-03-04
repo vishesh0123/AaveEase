@@ -17,7 +17,7 @@ function BorrowFromAaveCard() {
     <>
       <Card
         sx={{
-          width: 750,
+          width: 870,
           height: 300,
           background:
             "radial-gradient(circle at center center, rgb(42, 46, 63), rgb(38, 41, 55))",
@@ -44,8 +44,7 @@ function BorrowFromAaveCard() {
               <Typography
                 style={{
                   fontFamily: "Lilita One",
-                  fontWeight: "50",
-                  fontSize: "1.2rem",
+                  fontSize: "1.5rem",
                   color: "white",
                   textTransform: "none",
                 }}
@@ -56,7 +55,7 @@ function BorrowFromAaveCard() {
                 <Typography
                   style={{
                     fontFamily: "Lilita One",
-                    fontSize: "1.1rem",
+                    fontSize: "1.2rem",
                     color: "#e5b8ff",
                     textTransform: "none",
                     marginTop: "15px",
@@ -68,16 +67,14 @@ function BorrowFromAaveCard() {
                   <br />
                   Amount: &nbsp; Amount of token to supply
                   <br />
-                  interestRateMode: &nbsp; the type of borrow debt. Stable: 1,
-                  Variable: 2
+                  interestRateMode: &nbsp; Stable or Variable
                   <br />
                   onBehalfOf: &nbsp; address of user who will incur the debt.
                   <br />
                   <br />
-                  (NOTE : You must have supplied enough collateral via supply()
-                  and have delegated credit to our contract via
-                  approveDelegation() , you will be asked to do this once you
-                  complete building whole transaction.)
+                  You must have supplied enough collateral via supply and have
+                  delegated credit to our contract via approveDelegation() ,
+                  Borrowed assets will be sent to your address
                 </Typography>
               ) : (
                 <BorrowTable state={borrowState} />
@@ -100,7 +97,7 @@ function BorrowFromAaveCard() {
             borderRadius: "10px",
             top: "100px",
             left: "80px",
-            right: "80px",
+            right: "120px",
             bottom: "100px",
           },
         }}
@@ -108,7 +105,7 @@ function BorrowFromAaveCard() {
         <BorrowMenu state={borrowState} setState={setBorrowState} />
         <BorrowTable state={borrowState} />
         <Button
-          style={{ marginTop: "20px", marginLeft: "400px" }}
+          style={{ marginTop: "20px", marginLeft: "480px" }}
           onClick={() => {
             setIsModalOpen(false);
           }}
@@ -116,7 +113,6 @@ function BorrowFromAaveCard() {
           <Typography
             style={{
               fontFamily: "Lilita One",
-              fontWeight: "50",
               fontSize: "1.2rem",
               color: "white",
               textTransform: "none",

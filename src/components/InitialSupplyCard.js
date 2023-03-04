@@ -5,7 +5,7 @@ import {
   CardActionArea,
   Button,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import React from "react";
 import Modal from "react-modal";
 import TokenSelectMenu from "./InitialSupplyCard/TokenSelectMenu";
