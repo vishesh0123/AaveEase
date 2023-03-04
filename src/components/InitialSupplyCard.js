@@ -20,7 +20,7 @@ function InitialSupplyCard() {
       {console.log("initial supply card")}
       <Card
         sx={{
-          width: 430,
+          width: 480,
           height: 300,
           background:
             "radial-gradient(circle at center center, rgb(42, 46, 63), rgb(38, 41, 55))",

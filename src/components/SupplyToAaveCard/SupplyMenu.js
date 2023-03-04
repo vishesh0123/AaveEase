@@ -29,7 +29,15 @@ function SupplyMenu({ state, setState }) {
   };
 
   const handleClick = (event) => {
-    setState([...state, { Token: token, Amount: amount, Address: address }]);
+    setState([
+      ...state,
+      {
+        Id: state.length + 1,
+        Token: token,
+        Amount: amount,
+        Address: address,
+      },
+    ]);
   };
 
   return (

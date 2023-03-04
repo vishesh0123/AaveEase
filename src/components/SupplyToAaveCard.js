@@ -17,7 +17,7 @@ function SupplyToAaveCard() {
     <>
       <Card
         sx={{
-          width: 650,
+          width: 730,
           height: 300,
           background:
             "radial-gradient(circle at center center, rgb(42, 46, 63), rgb(38, 41, 55))",
@@ -44,8 +44,7 @@ function SupplyToAaveCard() {
               <Typography
                 style={{
                   fontFamily: "Lilita One",
-                  fontWeight: "50",
-                  fontSize: "1.2rem",
+                  fontSize: "1.5rem",
                   color: "white",
                   textTransform: "none",
                 }}
@@ -56,7 +55,7 @@ function SupplyToAaveCard() {
                 <Typography
                   style={{
                     fontFamily: "Lilita One",
-                    fontSize: "1.1rem",
+                    fontSize: "1.3rem",
                     color: "#e5b8ff",
                     textTransform: "none",
                     marginTop: "25px",
@@ -66,11 +65,14 @@ function SupplyToAaveCard() {
                   <br />
                   Asset : Token to Supply
                   <br />
-                  <br />
                   Amount : Amount of token to supply
                   <br />
-                  <br />
                   onBehalfOf: Address which will recieve a Tokens
+                  <br />
+                  <br />
+                  Whatever tokens and their amounts entered here should be
+                  approved in initial supply component at the initial of
+                  transaction
                 </Typography>
               ) : (
                 <SupplyTable state={supplyState} />
@@ -93,7 +95,7 @@ function SupplyToAaveCard() {
             borderRadius: "10px",
             top: "100px",
             left: "180px",
-            right: "180px",
+            right: "190px",
             bottom: "100px",
           },
         }}
