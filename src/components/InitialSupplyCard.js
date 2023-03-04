@@ -5,7 +5,7 @@ import {
   CardActionArea,
   Button,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import Modal from "react-modal";
 import TokenSelectMenu from "./InitialSupplyCard/TokenSelectMenu";
@@ -14,11 +14,13 @@ import TokenTable from "./InitialSupplyCard/TokenTable";
 function InitialSupplyCard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [initialSupplyState, setInitialSupplyState] = useState([]);
+
   return (
     <>
+      {console.log("initial supply card")}
       <Card
         sx={{
-          width: 350,
+          width: 430,
           height: 300,
           background:
             "radial-gradient(circle at center center, rgb(42, 46, 63), rgb(38, 41, 55))",
@@ -45,34 +47,31 @@ function InitialSupplyCard() {
               <Typography
                 style={{
                   fontFamily: "Lilita One",
-                  fontWeight: "50",
-                  fontSize: "1.2rem",
+                  fontSize: "1.5rem",
                   color: "white",
                   textTransform: "none",
                 }}
               >
                 1. Initial Supply
               </Typography>
-              {initialSupplyState.length === 0 ? (
+              {initialSupplyState.length === 0 || isModalOpen === true ? (
                 <Typography
                   style={{
                     fontFamily: "Lilita One",
-                    fontWeight: "50",
-                    fontSize: "1.05rem",
+                    fontSize: "1.6rem",
                     color: "#e5b8ff",
                     textTransform: "none",
-                    marginTop: "25px",
+                    marginTop: "30px",
                   }}
                 >
                   While building complex transactions you might want to supply
                   some initial tokens which can be used in later steps. <br />
-                  <br />
-                  (Note : You will need to approve the amount of tokens to
-                  contract in later steps after you done building whole
-                  transaction.)
                 </Typography>
               ) : (
-                <TokenTable state={initialSupplyState} />
+                <TokenTable
+                  state={initialSupplyState}
+                  setState={setInitialSupplyState}
+                />
               )}
             </div>
           </CardContent>
@@ -92,7 +91,7 @@ function InitialSupplyCard() {
             borderRadius: "10px",
             top: "20px",
             left: "450px",
-            right: "430px",
+            right: "410px",
             bottom: "20px",
           },
         }}
@@ -101,7 +100,10 @@ function InitialSupplyCard() {
           state={initialSupplyState}
           changeState={setInitialSupplyState}
         />
-        <TokenTable state={initialSupplyState} />
+        <TokenTable
+          state={initialSupplyState}
+          setState={setInitialSupplyState}
+        />
         <Button
           style={{ marginTop: "20px", marginLeft: "180px" }}
           onClick={() => {

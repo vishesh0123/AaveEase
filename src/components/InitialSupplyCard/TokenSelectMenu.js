@@ -7,14 +7,13 @@ import {
   Typography,
   TextField,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import icons from "../../icons";
 
 function TokenSelectMenu({ state, changeState }) {
   const [token, setToken] = useState("");
   const [amount, setAmount] = useState(0);
-  const [id, setId] = useState(0);
 
   const handleTokenChange = (event) => {
     setToken(event.target.value);
@@ -25,17 +24,45 @@ function TokenSelectMenu({ state, changeState }) {
   };
 
   const handleClick = () => {
-    setId(id + 1);
     changeState([
       ...state,
       {
-        Id: id,
+        Id: state.length + 1,
         Token: token,
         Amount: amount,
         Approval: false,
       },
     ]);
+    // if (state.length === 0) {
+    //   changeState([
+    //     ...state,
+    //     {
+    //       Id: 1,
+    //       Token: token,
+    //       Amount: amount,
+    //       Approval: false,
+    //     },
+    //   ]);
+    // } else {
+    //   let changed = false;
+    //   for (let i in state) {
+    //     let s = state;
+    //     if (state[i].Token === token) {
+    //       s[i].Amount = Number(s[i].Amount) + Number(amount);
+    //       s[i].Approval = false;
+    //       changeState(s);
+    //       changed = true;
+    //       break;
+    //     }
+    //   }
+
+    //   if (!changed) {
+
+    //   }
+    // }
   };
+  console.log("token select menu");
+
   return (
     <div>
       <FormControl sx={{ minWidth: 200, height: 100, borderColor: "white" }}>

@@ -9,40 +9,12 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import CancelIcon from "@mui/icons-material/Cancel";
-import { erc20ABI } from "wagmi";
-import { polygonMumbai } from "../../deployedContracts";
-import { useContractWrite, usePrepareContractWrite } from "wagmi";
-import { parseUnits } from "ethers/lib/utils.js";
+import React, { useEffect } from "react";
 
-function TokenTable({ state }) {
-  // const { address, isConnecting, isDisconnected } = useAccount();
-  const [token, setToken] = useState("");
-  const [amount, setAmount] = useState(0);
+import TokenApproval from "./TokenApproval";
 
-  const { config } = usePrepareContractWrite({
-    address: token,
-    abi: erc20ABI,
-    functionName: "approve",
-    args: [
-      "0xF14f9596430931E177469715c591513308244e8F",
-      parseUnits(amount.toString(), 18),
-    ],
-  });
-
-  const { write } = useContractWrite({
-    ...config,
-    onSuccess(data) {
-      console.log("success", data);
-    },
-  });
-
-  const handleClick = (token, amount) => {
-    setToken(polygonMumbai[token]);
-    setAmount(amount);
-  };
-
+function TokenTable({ state, setState }) {
+  console.log("token table");
   return (
     <div>
       <TableContainer component={Paper} style={{ marginTop: "30px" }}>
@@ -162,33 +134,14 @@ function TokenTable({ state }) {
                         color: "white",
                       }}
                     >
-                      {row.Approval ? (
-                        <></>
-                      ) : (
-                        <div
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "space-evenly",
-                          }}
-                        >
-                          <CancelIcon style={{ color: "#D2122E" }} />
-                          <Button
-                            onClick={() => handleClick(row.Token, row.Amount)}
-                          >
-                            <Typography
-                              style={{
-                                fontFamily: "Lilita One",
-
-                                fontSize: "0.9rem",
-                                color: "#4FFFB0",
-                              }}
-                            >
-                              Approve
-                            </Typography>
-                          </Button>
-                        </div>
-                      )}
+                      <TokenApproval
+                        id={row.Id}
+                        token={row.Token}
+                        amount={row.Amount}
+                        approval={row.Approval}
+                        state={state}
+                        setState={setState}
+                      />
                     </Typography>
                   </TableCell>
                 </TableRow>

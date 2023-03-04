@@ -19,12 +19,13 @@ function TxBuilder() {
         boxSizing: "border-box",
         flexDirection: "row",
         height: "400px",
+        justifyContent: "flex-start",
       }}
     >
       <Typography
         style={{
           fontFamily: "Lilita One",
-          fontSize: "1.01rem",
+          fontSize: "1.005rem",
           color: "white",
           transform: "rotate(270deg)",
         }}
@@ -41,7 +42,7 @@ function TxBuilder() {
             height: "360px",
             maxWidth: "1230px",
             overflowX: "auto",
-            marginTop: "20px",
+            marginTop: "10px",
           }}
         >
           <Grid item>

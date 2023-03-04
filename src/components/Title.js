@@ -53,7 +53,7 @@ function Title() {
           fontFamily: "Lilita One",
         }}
       >
-        Powerful tools for optimizing Aave transactions through innovative batch
+        Powerful tool for optimizing Aave transactions through innovative batch
         and migration features.
       </Typography>
     </div>
