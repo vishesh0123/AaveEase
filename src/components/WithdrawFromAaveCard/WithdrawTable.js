@@ -9,8 +9,9 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
+import WithdrawPermit from "./WithdrawPermit";
 
-function WithdrawTable({ state }) {
+function WithdrawTable({ state, setState }) {
   return (
     <div>
       <TableContainer component={Paper} style={{ marginTop: "30px" }}>
@@ -23,6 +24,19 @@ function WithdrawTable({ state }) {
         >
           <TableHead>
             <TableRow>
+              <TableCell>
+                <Typography
+                  style={{
+                    fontFamily: "Lilita One",
+                    fontWeight: "30",
+                    fontSize: "1rem",
+                    marginLeft: "10px",
+                    color: "#e5b8ff",
+                  }}
+                >
+                  ID
+                </Typography>
+              </TableCell>
               <TableCell>
                 <Typography
                   style={{
@@ -49,12 +63,51 @@ function WithdrawTable({ state }) {
                   AMOUNT
                 </Typography>
               </TableCell>
+              <TableCell>
+                <Typography
+                  style={{
+                    fontFamily: "Lilita One",
+                    fontWeight: "30",
+                    fontSize: "1rem",
+                    marginLeft: "10px",
+                    color: "#e5b8ff",
+                  }}
+                >
+                  WITHDRAW ADDRESS
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography
+                  style={{
+                    fontFamily: "Lilita One",
+                    fontWeight: "30",
+                    fontSize: "1rem",
+                    marginLeft: "10px",
+                    color: "#e5b8ff",
+                  }}
+                >
+                  APPROVAL
+                </Typography>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {state.map((row) => {
               return (
-                <TableRow key={row.Token}>
+                <TableRow key={row.Id}>
+                  <TableCell>
+                    <Typography
+                      style={{
+                        fontFamily: "Lilita One",
+                        fontWeight: "30",
+                        fontSize: "1rem",
+                        marginLeft: "10px",
+                        color: "white",
+                      }}
+                    >
+                      {row.Id}
+                    </Typography>
+                  </TableCell>
                   <TableCell>
                     <Typography
                       style={{
@@ -79,6 +132,39 @@ function WithdrawTable({ state }) {
                       }}
                     >
                       {row.Amount}
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography
+                      style={{
+                        fontFamily: "Lilita One",
+                        fontWeight: "30",
+                        fontSize: "1rem",
+                        marginLeft: "10px",
+                        color: "white",
+                      }}
+                    >
+                      {row.Address}
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography
+                      style={{
+                        fontFamily: "Lilita One",
+                        fontWeight: "30",
+                        fontSize: "1rem",
+                        marginLeft: "10px",
+                        color: "white",
+                      }}
+                    >
+                      <WithdrawPermit
+                        id={row.Id}
+                        token={row.Token}
+                        amount={row.Amount}
+                        permit={row.Permit}
+                        state={state}
+                        setState={setState}
+                      />
                     </Typography>
                   </TableCell>
                 </TableRow>

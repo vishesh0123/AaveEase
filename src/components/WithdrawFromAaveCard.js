@@ -17,7 +17,7 @@ function WithdrawFromAaveCard() {
     <>
       <Card
         sx={{
-          width: 700,
+          width: 840,
           height: 300,
           background:
             "radial-gradient(circle at center center, rgb(42, 46, 63), rgb(38, 41, 55))",
@@ -74,7 +74,10 @@ function WithdrawFromAaveCard() {
                   Gasless Approval .
                 </Typography>
               ) : (
-                <WithdrawTable state={withdrawState} />
+                <WithdrawTable
+                  state={withdrawState}
+                  setState={setWithdrawState}
+                />
               )}
             </div>
           </CardContent>
@@ -93,16 +96,16 @@ function WithdrawFromAaveCard() {
             position: "absolute",
             borderRadius: "10px",
             top: "100px",
-            left: "450px",
-            right: "430px",
+            left: "240px",
+            right: "220px",
             bottom: "100px",
           },
         }}
       >
         <WithdrawMenu state={withdrawState} changeState={setWithdrawState} />
-        <WithdrawTable state={withdrawState} />
+        <WithdrawTable state={withdrawState} setState={setWithdrawState} />
         <Button
-          style={{ marginTop: "20px", marginLeft: "180px" }}
+          style={{ marginTop: "20px", marginLeft: "380px" }}
           onClick={() => {
             setIsModalOpen(false);
           }}

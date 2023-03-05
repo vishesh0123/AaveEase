@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { erc20ABI } from "wagmi";
 import { useAccount } from "wagmi";
 import { useContractWrite, usePrepareContractWrite } from "wagmi";
+import { useSignTypedData } from "wagmi";
 import { decimals, polygonMumbai } from "../../deployedContracts";
 import { parseUnits } from "ethers/lib/utils.js";
 import CancelIcon from "@mui/icons-material/Cancel";
@@ -42,12 +43,11 @@ function TokenApproval({ id, token, amount, approval, state, setState }) {
     if (isDisconnected === true) {
       console.log("connect wallet");
     } else {
-      console.log("approve clicked");
       setLoader(true);
       write();
     }
   };
-  console.log("approval component");
+
   return approve ? (
     <div
       style={{

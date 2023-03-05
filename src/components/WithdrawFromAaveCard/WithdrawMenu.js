@@ -14,6 +14,7 @@ import icons from "../../icons";
 function WithdrawMenu({ state, changeState }) {
   const [token, setToken] = useState("");
   const [amount, setAmount] = useState(0);
+  const [address, setAddress] = useState("");
 
   const handleTokenChange = (event) => {
     setToken(event.target.value);
@@ -23,8 +24,21 @@ function WithdrawMenu({ state, changeState }) {
     setAmount(event.target.value);
   };
 
+  const handleAddressChange = (event) => {
+    setAddress(event.target.value);
+  };
+
   const handleClick = () => {
-    changeState([...state, { Token: token, Amount: amount }]);
+    changeState([
+      ...state,
+      {
+        Id: state.length + 1,
+        Token: token,
+        Amount: amount,
+        Address: address,
+        Permit: false,
+      },
+    ]);
   };
   return (
     <div>
@@ -93,6 +107,29 @@ function WithdrawMenu({ state, changeState }) {
         }}
         variant="outlined"
         onChange={handleAmountChange}
+      />
+      <TextField
+        sx={{
+          marginLeft: "10px",
+          width: "350px",
+        }}
+        label="ENTER ADDRESS TO WITHDRAW"
+        InputLabelProps={{
+          style: {
+            fontFamily: "Lilita One",
+            color: "white",
+            fontSize: "1rem",
+          },
+        }}
+        InputProps={{
+          style: {
+            fontFamily: "Lilita One",
+            fontSize: "1rem",
+            color: "white",
+          },
+        }}
+        variant="outlined"
+        onChange={handleAddressChange}
       />
       <Button
         onClick={handleClick}
