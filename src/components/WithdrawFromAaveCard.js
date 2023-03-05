@@ -107,6 +107,7 @@ function WithdrawFromAaveCard() {
         <Button
           style={{ marginTop: "20px", marginLeft: "380px" }}
           onClick={() => {
+            console.log("clse");
             setIsModalOpen(false);
           }}
         >

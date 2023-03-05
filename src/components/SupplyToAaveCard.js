@@ -10,7 +10,7 @@ import Modal from "react-modal";
 import SupplyMenu from "./SupplyToAaveCard/SupplyMenu";
 import SupplyTable from "./SupplyToAaveCard/SupplyTable";
 
-function SupplyToAaveCard() {
+function SupplyToAaveCard({ id }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [supplyState, setSupplyState] = useState([]);
   return (
@@ -49,7 +49,7 @@ function SupplyToAaveCard() {
                   textTransform: "none",
                 }}
               >
-                2. Supply To Aave
+                {id}. Supply To Aave
               </Typography>
               {supplyState.length === 0 ? (
                 <Typography

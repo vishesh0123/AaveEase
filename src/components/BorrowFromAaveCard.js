@@ -10,7 +10,7 @@ import Modal from "react-modal";
 import BorrowMenu from "./BorrowToAaveCard/BorrowMenu";
 import BorrowTable from "./BorrowToAaveCard/BorrowTable";
 
-function BorrowFromAaveCard() {
+function BorrowFromAaveCard({ id }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [borrowState, setBorrowState] = useState([]);
   return (
@@ -49,7 +49,7 @@ function BorrowFromAaveCard() {
                   textTransform: "none",
                 }}
               >
-                3. Borrow From Aave
+                {id}. Borrow From Aave
               </Typography>
               {borrowState.length === 0 ? (
                 <Typography

@@ -8,20 +8,30 @@ import {
 import React, { useState } from "react";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 
-function SelectActions() {
-  const [action, setAction] = useState("");
-  const [activeMenu, setMenuActive] = useState(false);
+function SelectActions({ state, changeState }) {
+  const [action, setAction] = useState(0);
 
   const handleChange = (event) => {
     setAction(event.target.value);
-    setMenuActive(false);
   };
 
   const handleClick = () => {
-    setMenuActive(true);
+    changeState([...state, action]);
   };
   return (
-    <div style={{ margin: "30px", display: "flex" }}>
+    <div
+      style={{
+        marginTop: "30px",
+        marginLeft: "50px",
+        display: "flex",
+        border: "1px solid #e5b8ff",
+        borderRadius: "2px",
+        height: "90px",
+        width: "300px",
+        alignItems: "center",
+        justifyContent: "space-around",
+      }}
+    >
       <FormControl sx={{ minWidth: 200, borderColor: "white" }}>
         <InputLabel
           id="demo-simple-select-label"
@@ -71,13 +81,13 @@ function SelectActions() {
             Take a Flashloan
           </MenuItem>
           <MenuItem
-            value={5}
+            value={6}
             style={{ fontFamily: "Lilita One", fontSize: "1.2rem" }}
           >
             Implement a SWAP
           </MenuItem>
           <MenuItem
-            value={5}
+            value={7}
             style={{ fontFamily: "Lilita One", fontSize: "1.2rem" }}
           >
             Migrate All Positions

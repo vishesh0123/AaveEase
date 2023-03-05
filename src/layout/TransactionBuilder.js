@@ -9,8 +9,8 @@ function TransactionBuilder() {
   return (
     <>
       <Header />
-      <SelectActions />
-      <TxBuilder />
+      <SelectActions state={appState} changeState={setState} />
+      <TxBuilder state={appState} changeState={setState} />
       <BuildTransaction />
     </>
   );

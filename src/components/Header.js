@@ -1,4 +1,4 @@
-import { AppBar, Container, Toolbar } from "@mui/material";
+import { AppBar, Container, Toolbar, Typography } from "@mui/material";
 import React from "react";
 import { Web3Button } from "@web3modal/react";
 
@@ -12,8 +12,20 @@ function Header() {
         }}
       >
         <Container maxWidth="xl">
-          <Toolbar disableGutters style={{ flexDirection: "row-reverse" }}>
-            <Web3Button />
+          <Toolbar disableGutters>
+            <Typography
+              style={{
+                fontFamily: "Lilita One",
+                fontSize: "1.9rem",
+                color: "#e5b8ff",
+                textTransform: "none",
+              }}
+            >
+              AaveEase
+            </Typography>
+            <div style={{ marginLeft: "500px" }}>
+              <Web3Button />
+            </div>
           </Toolbar>
         </Container>
       </AppBar>

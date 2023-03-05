@@ -9,7 +9,7 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import SelectActions from "./SelectActions";
 
-function FlashloanAaveCard() {
+function FlashloanAaveCard({ id }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [flashloanState, setRepayState] = useState([]);
   return (
@@ -49,7 +49,7 @@ function FlashloanAaveCard() {
                   textTransform: "none",
                 }}
               >
-                5. Flashloan
+                {id}. Flashloan
               </Typography>
               {flashloanState.length === 0 ? (
                 <Typography

@@ -8,7 +8,7 @@ import RepayAaveCard from "./RepayAaveCard";
 import FlashloanAaveCard from "./FlashloanAaveCard";
 import MigratePositionsCard from "./MigratePositionsCard";
 
-function TxBuilder() {
+function TxBuilder({ state, changeState }) {
   return (
     <div
       style={{
@@ -48,24 +48,49 @@ function TxBuilder() {
           <Grid item>
             <InitialSupplyCard />
           </Grid>
-          <Grid item>
-            <SupplyToAaveCard />
-          </Grid>
-          <Grid item>
-            <BorrowFromAaveCard />
-          </Grid>
-          <Grid item>
-            <WithdrawFromAaveCard />
-          </Grid>
-          <Grid item>
-            <RepayAaveCard />
-          </Grid>
-          <Grid item>
-            <FlashloanAaveCard />
-          </Grid>
-          <Grid item>
-            <MigratePositionsCard />
-          </Grid>
+          {state.map((key, index) => {
+            switch (key) {
+              case 1:
+                return (
+                  <Grid item>
+                    <SupplyToAaveCard id={index + 2} />
+                  </Grid>
+                );
+              case 2:
+                return (
+                  <Grid item>
+                    <BorrowFromAaveCard id={index + 2} />
+                  </Grid>
+                );
+              case 3:
+                return (
+                  <Grid item>
+                    <WithdrawFromAaveCard id={index + 2} />
+                  </Grid>
+                );
+              case 4:
+                return (
+                  <Grid item>
+                    <RepayAaveCard id={index + 2} />
+                  </Grid>
+                );
+              case 5:
+                return (
+                  <Grid item>
+                    <FlashloanAaveCard id={index + 2} />
+                  </Grid>
+                );
+              case 7:
+                return (
+                  <Grid item>
+                    <MigratePositionsCard id={index + 2} />
+                  </Grid>
+                );
+
+              default:
+                return <></>;
+            }
+          })}
         </Grid>
       </div>
     </div>

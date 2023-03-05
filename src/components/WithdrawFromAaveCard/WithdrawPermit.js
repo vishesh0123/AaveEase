@@ -10,11 +10,10 @@ import { parseUnits } from "ethers/lib/utils.js";
 import { fromRpcSig } from "ethereumjs-util";
 
 function WithdrawPermit({ id, token, amount, permit, state, setState }) {
-  const [approve, setApprove] = useState(permit);
   const [loader, setLoader] = useState(false);
-  const { address, isConnecting, isDisconnected } = useAccount();
+  const { address, isDisconnected } = useAccount();
 
-  const { data, isError, isSuccess, signTypedData } = useSignTypedData({
+  const { signTypedData } = useSignTypedData({
     domain: {
       name: `a${token}`,
       version: "1",
@@ -45,7 +44,6 @@ function WithdrawPermit({ id, token, amount, permit, state, setState }) {
     },
     onSuccess(data) {
       handleSuccess(data);
-      setApprove(true);
     },
   });
 
@@ -57,7 +55,6 @@ function WithdrawPermit({ id, token, amount, permit, state, setState }) {
     data[id - 1].R = r;
     data[id - 1].S = s;
     setState(data);
-    setApprove(true);
   };
 
   const handleClick = async () => {
@@ -68,7 +65,8 @@ function WithdrawPermit({ id, token, amount, permit, state, setState }) {
       signTypedData();
     }
   };
-  return approve ? (
+  console.log(state);
+  return permit ? (
     <div
       style={{
         display: "flex",

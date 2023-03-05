@@ -8,7 +8,7 @@ import {
 import React, { useState } from "react";
 import Modal from "react-modal";
 
-function MigratePositionsCard() {
+function MigratePositionsCard({ id }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [migrateState, setRepayState] = useState([]);
   return (
@@ -48,7 +48,7 @@ function MigratePositionsCard() {
                   textTransform: "none",
                 }}
               >
-                6.Migrate Your Positions
+                {id}.Migrate Your Positions
               </Typography>
               {migrateState.length === 0 ? (
                 <Typography

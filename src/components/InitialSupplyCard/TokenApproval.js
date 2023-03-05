@@ -11,7 +11,6 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { Button, Typography } from "@mui/material";
 
 function TokenApproval({ id, token, amount, approval, state, setState }) {
-  const [approve, setApprove] = useState(approval);
   const [loader, setLoader] = useState(false);
   const { address, isConnecting, isDisconnected } = useAccount();
   const { config } = usePrepareContractWrite({
@@ -36,7 +35,6 @@ function TokenApproval({ id, token, amount, approval, state, setState }) {
     let data = [...state];
     data[id - 1].Approval = true;
     setState(data);
-    setApprove(true);
   };
 
   const handleClick = () => {
@@ -48,7 +46,7 @@ function TokenApproval({ id, token, amount, approval, state, setState }) {
     }
   };
 
-  return approve ? (
+  return approval ? (
     <div
       style={{
         display: "flex",

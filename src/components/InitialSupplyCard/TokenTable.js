@@ -14,7 +14,6 @@ import React, { useEffect } from "react";
 import TokenApproval from "./TokenApproval";
 
 function TokenTable({ state, setState }) {
-  console.log("token table");
   return (
     <div>
       <TableContainer component={Paper} style={{ marginTop: "30px" }}>

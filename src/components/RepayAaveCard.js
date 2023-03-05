@@ -10,7 +10,7 @@ import Modal from "react-modal";
 import RepayMenu from "./RepayDebtAaveCard/RepayMenu";
 import RepayTable from "./RepayDebtAaveCard/RepayTable";
 
-function RepayAaveCard() {
+function RepayAaveCard({ id }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [repayState, setRepayState] = useState([]);
   return (
@@ -50,7 +50,7 @@ function RepayAaveCard() {
                   textTransform: "none",
                 }}
               >
-                4. Repay Debt
+                {id}. Repay Debt
               </Typography>
               {repayState.length === 0 ? (
                 <Typography

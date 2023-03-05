@@ -37,6 +37,9 @@ function WithdrawMenu({ state, changeState }) {
         Amount: amount,
         Address: address,
         Permit: false,
+        V: undefined,
+        R: undefined,
+        S: undefined,
       },
     ]);
   };
