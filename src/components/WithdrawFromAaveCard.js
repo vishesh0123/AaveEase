@@ -17,7 +17,7 @@ function WithdrawFromAaveCard() {
     <>
       <Card
         sx={{
-          width: 370,
+          width: 700,
           height: 300,
           background:
             "radial-gradient(circle at center center, rgb(42, 46, 63), rgb(38, 41, 55))",
@@ -44,8 +44,7 @@ function WithdrawFromAaveCard() {
               <Typography
                 style={{
                   fontFamily: "Lilita One",
-                  fontWeight: "50",
-                  fontSize: "1.2rem",
+                  fontSize: "1.5rem",
                   color: "white",
                   textTransform: "none",
                 }}
@@ -56,7 +55,7 @@ function WithdrawFromAaveCard() {
                 <Typography
                   style={{
                     fontFamily: "Lilita One",
-                    fontSize: "1.1rem",
+                    fontSize: "1.39rem",
                     color: "#e5b8ff",
                     textTransform: "none",
                     marginTop: "15px",
@@ -64,20 +63,15 @@ function WithdrawFromAaveCard() {
                 >
                   Parameters:
                   <br />
-                  Asset: &nbsp; Token to Supply
+                  Asset: &nbsp; Token to Withdraw
                   <br />
-                  Amount: &nbsp; Amount of token to supply
+                  Amount: &nbsp; Amount of token to withdraw
                   <br />
-                  interestRateMode: &nbsp; the type of borrow debt. Stable: 1,
-                  Variable: 2
-                  <br />
-                  onBehalfOf: &nbsp; address of user who will incur the debt.
+                  To: &nbsp; address of user who will incur the debt.
                   <br />
                   <br />
-                  (NOTE : You must have supplied enough collateral via supply()
-                  and have delegated credit to our contract via
-                  approveDelegation() , you will be asked to do this once you
-                  complete building whole transaction.)
+                  You will need to approve aTokens to our contract via permit -
+                  Gasless Approval .
                 </Typography>
               ) : (
                 <WithdrawTable state={withdrawState} />
