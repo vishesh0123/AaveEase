@@ -23,7 +23,16 @@ function Header() {
             >
               AaveEase
             </Typography>
-            <div style={{ marginLeft: "500px" }}>
+            <div
+              style={{
+                marginLeft: "500px",
+                backgroundColor: "white",
+                borderRadius: "5px",
+                width: "200px",
+                height: "50px",
+                alignItems: "center",
+              }}
+            >
               <Web3Button />
             </div>
           </Toolbar>

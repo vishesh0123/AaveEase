@@ -10,7 +10,7 @@ import Modal from "react-modal";
 import WithdrawMenu from "./WithdrawFromAaveCard/WithdrawMenu";
 import WithdrawTable from "./WithdrawFromAaveCard/WithdrawTable";
 
-function WithdrawFromAaveCard() {
+function WithdrawFromAaveCard({ id }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [withdrawState, setWithdrawState] = useState([]);
   return (
@@ -49,7 +49,7 @@ function WithdrawFromAaveCard() {
                   textTransform: "none",
                 }}
               >
-                4. Withdraw From Aave
+                {id}. Withdraw From Aave
               </Typography>
               {withdrawState.length === 0 ? (
                 <Typography
