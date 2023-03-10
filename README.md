@@ -1,6 +1,6 @@
 # AaveEase: Streamlining Your Aave Experience.
 
-ETHForAll Hackathon Winner ![image info](./trophy.png) - AAVE Grants DAO
+# ETHForAll Hackathon Winner ![image info](./trophy.png) - AAVE Grants DAO
 
 Powerful tool for optimizing Aave transactions through innovative batch and migration features.
 
