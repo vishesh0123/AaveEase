@@ -26,7 +26,6 @@ function Header() {
             <div
               style={{
                 marginLeft: "500px",
-                backgroundColor: "white",
                 borderRadius: "5px",
                 width: "200px",
                 height: "50px",
